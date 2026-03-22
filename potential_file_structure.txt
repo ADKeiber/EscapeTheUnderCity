@@ -1,0 +1,128 @@
+res://
+  main/
+    main.tscn
+    game.gd
+    scene_router.gd
+
+  sections/
+    main_menu/
+      main_menu.tscn
+      main_menu.gd
+      ui/
+      assets/
+
+    camp/
+      camp.tscn
+      camp.gd
+      ui/
+      events/
+
+    map/
+      map.tscn
+      map.gd
+      nodes/
+      encounters/
+
+    battle/
+      battle.tscn
+      battle.gd
+      ui/
+      entities/
+      effects/
+
+    rewards/
+      rewards.tscn
+      rewards.gd
+      ui/
+
+  systems/
+    cards/
+      card.gd
+      card_data.gd
+      card_library.gd
+      card_view.tscn
+      card_view.gd
+
+    combat/
+      combat_manager.gd
+      turn_manager.gd
+      effect_resolver.gd
+      intent_data.gd
+
+    player/
+      player_state.gd
+      deck_state.gd
+      relic_state.gd
+
+    enemies/
+      enemy_data.gd
+      enemy_action.gd
+      enemy_factory.gd
+
+    save/
+      save_manager.gd
+      profile_data.gd
+
+    progression/
+      run_state.gd
+      unlock_manager.gd
+
+    events/
+      signal_bus.gd
+      game_events.gd
+
+    ui/
+      tooltip/
+      popup/
+      transitions/
+      common_widgets/
+
+  resources/
+    cards/
+    enemies/
+    relics/
+    encounters/
+    events/
+    status_effects/
+    runs/
+
+  scenes/
+    shared/
+      card/
+      enemy/
+      buttons/
+      overlays/
+      backgrounds/
+
+  scripts/
+    autoload/
+    utils/
+    base_classes/
+    extensions/
+
+  assets/
+    art/
+      cards/
+      backgrounds/
+      characters/
+      icons/
+      ui/
+      vfx/
+    audio/
+      music/
+      sfx/
+      voice/
+    fonts/
+    shaders/
+
+  data/
+    json/
+    csv/
+
+  tests/
+    unit/
+    integration/
+
+  debug/
+    debug_menu.tscn
+    debug_tools.gd
