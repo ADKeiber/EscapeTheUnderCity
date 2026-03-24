@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BattleSetting" format=3 uid="uid://bsb3qvvnpo1ns"]
+
+[ext_resource type="Script" uid="uid://dc7rl1dyekaxd" path="res://resources/battle_scenes/enemy_anchor.gd" id="1_vqhcw"]
+[ext_resource type="Script" uid="uid://bol1vnjopsb4k" path="res://resources/battle_scenes/battle_setting.gd" id="2_ji544"]
+[ext_resource type="Script" uid="uid://dnm1twvyqgui8" path="res://resources/enemies/enemy_stats.gd" id="3_kt7wn"]
+
+[resource]
+script = ExtResource("2_ji544")
+valid_enemies = Array[ExtResource("3_kt7wn")]([null])
+metadata/_custom_type_script = "uid://bol1vnjopsb4k"
