@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ddk2rk1v2ua7d" path="res://sections/battle/battle.gd" id="1_d6h4l"]
 [ext_resource type="Script" uid="uid://bdcb0jj5c6ks2" path="res://systems/enemy/enemy_handler.gd" id="2_d6h4l"]
+[ext_resource type="Resource" uid="uid://bsb3qvvnpo1ns" path="res://resources/battle_scenes/grocery_aisle.tres" id="2_vf5q8"]
+[ext_resource type="PackedScene" uid="uid://biqv2dx576q4r" path="res://systems/enemy/enemy.tscn" id="3_h2236"]
 
 [node name="Battle" type="Control" unique_id=5813673]
 layout_mode = 3
@@ -11,8 +13,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d6h4l")
+battle_setting = ExtResource("2_vf5q8")
 
-[node name="Background" type="TextureRect" parent="." unique_id=522527396]
+[node name="BattleLandscape" type="TextureRect" parent="." unique_id=522527396]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,4 +30,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="EnemyHandler" type="Node2D" parent="." unique_id=1629965407]
+unique_name_in_owner = true
 script = ExtResource("2_d6h4l")
+
+[node name="Enemy" parent="EnemyHandler" unique_id=376176386 instance=ExtResource("3_h2236")]
+position = Vector2(968, 689.00006)
+scale = Vector2(0.4, 0.4)
