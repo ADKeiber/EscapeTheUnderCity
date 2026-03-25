@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SixShooterShot" format=3 uid="uid://dx3vrsh2twif2"]
+
+[ext_resource type="Script" uid="uid://hep7c53unw36" path="res://resources/cards/human/six_shooter_shot.gd" id="1_6nfbc"]
+[ext_resource type="Texture2D" uid="uid://bjmbb0etj36kv" path="res://assets/art/cards/human/Human_Gun_Card.png" id="1_bs3df"]
+
+[resource]
+script = ExtResource("1_6nfbc")
+id = "six_shooter_shot"
+target = 1
+cost = 10
+art = ExtResource("1_bs3df")
+tooltip_text = "[center]Deal [color=\"ff0000\"]6[/color] damage. [/center]"
+metadata/_custom_type_script = "uid://hep7c53unw36"

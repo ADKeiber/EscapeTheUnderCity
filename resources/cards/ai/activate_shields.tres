@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ActivateShields" format=3 uid="uid://ouonr0w0upbg"]
+
+[ext_resource type="Texture2D" uid="uid://leqsovi1er5s" path="res://assets/art/cards/ai/Ai_Shield_Card.png" id="1_kvsne"]
+[ext_resource type="Script" uid="uid://bwe464x7f04q8" path="res://resources/cards/ai/activate_shields.gd" id="1_rydkp"]
+
+[resource]
+script = ExtResource("1_rydkp")
+id = "activate_shields"
+timeResource = 1
+cost = 20
+art = ExtResource("1_kvsne")
+tooltip_text = "[center]Gain [color=\"0044ff\"]5[/color] block.[/center]"
+metadata/_custom_type_script = "uid://bwe464x7f04q8"

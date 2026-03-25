@@ -3,3 +3,4 @@ extends Stats
 
 #add AI
 @export var nothing: int
+@export var art: Texture     ## The art for an entity

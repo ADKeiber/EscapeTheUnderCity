@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardPile" format=3 uid="uid://d3e6rlb2unhve"]
+
+[ext_resource type="Script" uid="uid://118ealbr4yep" path="res://resources/cards/card.gd" id="1_4ovg3"]
+[ext_resource type="Script" uid="uid://r1oi4eqicahx" path="res://resources/cards/card_pile.gd" id="2_hixkc"]
+[ext_resource type="Resource" uid="uid://dx3vrsh2twif2" path="res://resources/cards/human/six_shooter_shot.tres" id="2_rris1"]
+
+[resource]
+script = ExtResource("2_hixkc")
+cards = Array[ExtResource("1_4ovg3")]([ExtResource("2_rris1"), ExtResource("2_rris1"), ExtResource("2_rris1"), ExtResource("2_rris1"), ExtResource("2_rris1")])
+metadata/_custom_type_script = "uid://r1oi4eqicahx"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardPile" format=3 uid="uid://85mrjvxv2aw4"]
+
+[ext_resource type="Script" uid="uid://118ealbr4yep" path="res://resources/cards/card.gd" id="1_i6hwn"]
+[ext_resource type="Resource" uid="uid://ouonr0w0upbg" path="res://resources/cards/ai/activate_shields.tres" id="2_nlbav"]
+[ext_resource type="Script" uid="uid://r1oi4eqicahx" path="res://resources/cards/card_pile.gd" id="2_y6xtd"]
+
+[resource]
+script = ExtResource("2_y6xtd")
+cards = Array[ExtResource("1_i6hwn")]([ExtResource("2_nlbav"), ExtResource("2_nlbav"), ExtResource("2_nlbav"), ExtResource("2_nlbav"), ExtResource("2_nlbav"), ExtResource("2_nlbav")])
+metadata/_custom_type_script = "uid://r1oi4eqicahx"

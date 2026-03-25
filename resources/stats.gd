@@ -4,7 +4,6 @@ extends Resource
 signal stats_changed
 
 @export var max_health := 10 ## Contains the max health of an entity
-@export var art: Texture     ## The art for an entity
 
 var health: int : set = set_health ## The health of the entity
 var block : int : set = set_block  ## The block of the entity

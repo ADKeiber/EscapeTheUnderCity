@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://br0142wq6ek7a"]
+
+[ext_resource type="Texture2D" uid="uid://c86hetbx60ic0" path="res://assets/art/enemies/SnakemanBW.png" id="1_uxy5h"]
+[ext_resource type="Script" uid="uid://dnm1twvyqgui8" path="res://resources/enemies/enemy_stats.gd" id="1_yhyk8"]
+
+[resource]
+script = ExtResource("1_yhyk8")
+art = ExtResource("1_uxy5h")
+max_health = 25
+metadata/_custom_type_script = "uid://dnm1twvyqgui8"
