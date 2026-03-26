@@ -2,7 +2,7 @@ class_name Battle
 extends Control
 
 @export var battle_setting: BattleSetting
-
+@export var player_stats: PlayerStats
 @onready var battle_landscape: TextureRect = $BattleLandscape
 @onready var enemy_handler: EnemyHandler = %EnemyHandler
 
@@ -16,6 +16,8 @@ func _ready() -> void:
 	enemy_handler.remove_enemies()
 	for enemy in battle_setting.selected_enemies:
 		enemy_handler.generate_enemy(enemy, battle_setting.selected_enemies[enemy])
+	###Player
+	State.player_stats = player_stats.create_instance();
 
 
 

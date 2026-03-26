@@ -19,6 +19,7 @@ var ai_deck: CardPile                              ## Entire ai deck of a charac
 var ai_discard: CardPile   
 var ai_draw_pile: CardPile                          ## The pile of drawable cards for the character
 
+var card_anchors: Array[CardAnchor]
 
 ##  Sets the time queued for a character
 ##

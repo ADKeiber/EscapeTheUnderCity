@@ -4,3 +4,8 @@
 # These anchors should be plotted along a curve
 class_name CardAnchor
 extends Resource
+
+@export var card: Card
+@export var position: Vector2
+@export var resource_type: Card.TimeResource
+@export var resource_index: int
