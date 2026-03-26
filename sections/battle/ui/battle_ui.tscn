@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c8y3ywjk0co2s"]
+
+[node name="BattleUI" type="CanvasLayer" unique_id=1884477907]
+
+[node name="Hand" type="Control" parent="." unique_id=636607140]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

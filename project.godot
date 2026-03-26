@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 State="*uid://byk3qn5fgjemy"
+Signals="*uid://dnfy3xg5r7qca"
 
 [display]
 

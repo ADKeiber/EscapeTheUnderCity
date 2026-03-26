@@ -13,12 +13,12 @@ func _draw() -> void:
 	var steps :=  172 #TODO update to be resolution based.. currently its a point every 10 pixles (kind of)
 	for i in range(steps + 1):
 		var t:= float(i)/steps
-		points.append(_cubic_bezier(Vector2(000,1000), Vector2(646,900), Vector2(1268,900), Vector2(1920,1000), t))
+		points.append(_cubic_bezier(Vector2(000,1050), Vector2(646,950), Vector2(1268,950), Vector2(1920,1050), t))
 	
 	draw_polyline(points, Color.WHITE, 2.0)
 	var anchor_count: int  = 0
 	# Calculate Card Anchor points (where to place the cards)
-	var points_between_card: int = 20 # Effectively this number x 10 = px between card midpoints
+	var points_between_card: int = 15 # Effectively this number x 10 = px between card midpoints
 	var anchors: Array[CardAnchor]
 	#Calculate human hand first
 	var left_middle: int = steps/4
@@ -27,28 +27,33 @@ func _draw() -> void:
 		var card_anchor: CardAnchor = CardAnchor.new() # center card
 		card_anchor.position = points.get(left_middle)
 		card_anchor.resource_type = Card.TimeResource.HUMAN
+		card_anchor.resource_index = 0
 		anchors.append(card_anchor)
 		anchor_count += 1
 		for i in range((human_card_amount - 1) /2): # finds half the points (after removing 1(the middle))
 			var card_anchor1: CardAnchor = CardAnchor.new() # right
 			card_anchor1.position = points.get(left_middle + (points_between_card * (i + 1)))
 			card_anchor1.resource_type = Card.TimeResource.HUMAN
+			card_anchor1.resource_index = i+1
 			anchors.append(card_anchor1)
 			anchor_count += 1
 			var card_anchor2: CardAnchor = CardAnchor.new() # left
 			card_anchor2.position = points.get(left_middle - (points_between_card * (i + 1)))
 			card_anchor2.resource_type = Card.TimeResource.HUMAN
+			card_anchor2.resource_index = (i+1) * -1
 			anchors.append(card_anchor2)
 			anchor_count += 1
 	else: # its an even amount of cards
 		var cl_card_anchor: CardAnchor = CardAnchor.new() # center_left card
 		cl_card_anchor.position = points.get(left_middle - (points_between_card/2))
 		cl_card_anchor.resource_type = Card.TimeResource.HUMAN
+		cl_card_anchor.resource_index = 0
 		anchors.append(cl_card_anchor)
 		anchor_count += 1
 		var cr_card_anchor: CardAnchor = CardAnchor.new() # center_left card
 		cr_card_anchor.position = points.get(left_middle + (points_between_card/2))
 		cr_card_anchor.resource_type = Card.TimeResource.HUMAN
+		cr_card_anchor.resource_index = 1
 		anchors.append(cr_card_anchor)
 		anchor_count += 1
 		for i in range((human_card_amount - 2) /2): # finds half the points (after removing 2(the 2 middle))
@@ -56,11 +61,13 @@ func _draw() -> void:
 			var index = left_middle + (points_between_card/2) + (points_between_card * (i + 1))
 			card_anchor1.position = points.get(left_middle + (points_between_card/2) + (points_between_card * (i + 1)))
 			card_anchor1.resource_type = Card.TimeResource.HUMAN
+			card_anchor1.resource_index = i+2
 			anchors.append(card_anchor1)
 			anchor_count += 1
 			var card_anchor2: CardAnchor = CardAnchor.new() # left
 			card_anchor2.position = points.get(left_middle - (points_between_card/2) - (points_between_card * (i + 1)))
 			card_anchor2.resource_type = Card.TimeResource.HUMAN
+			card_anchor2.resource_index = (i+1) * -1
 			anchors.append(card_anchor2)
 			anchor_count += 1
 	#
@@ -74,40 +81,49 @@ func _draw() -> void:
 		var card_anchor: CardAnchor = CardAnchor.new() # center card
 		card_anchor.position = points.get(right_middle)
 		card_anchor.resource_type = Card.TimeResource.AI
+		card_anchor.resource_index = 0
 		anchors.append(card_anchor)
 		anchor_count += 1
 		for i in range((ai_card_amount - 1) /2): # finds half the points (after removing 1(the middle))
 			var card_anchor1: CardAnchor = CardAnchor.new() # right
 			card_anchor1.position = points.get(right_middle + (points_between_card * (i + 1)))
 			card_anchor1.resource_type = Card.TimeResource.AI
+			card_anchor1.resource_index = (i+1) * -1
 			anchors.append(card_anchor1)
 			var card_anchor2: CardAnchor = CardAnchor.new() # left
 			card_anchor2.position = points.get(right_middle - (points_between_card * (i + 1)))
 			card_anchor2.resource_type = Card.TimeResource.AI
+			card_anchor2.resource_index = i+1
 			anchors.append(card_anchor2)
 			anchor_count += 1
 	else: # its an even amount of cards
 		var cl_card_anchor: CardAnchor = CardAnchor.new() # center_left card
 		cl_card_anchor.position = points.get(right_middle - (points_between_card/2))
 		cl_card_anchor.resource_type = Card.TimeResource.AI
+		cl_card_anchor.resource_index = 1
 		anchors.append(cl_card_anchor)
 		anchor_count += 1
 		var cr_card_anchor: CardAnchor = CardAnchor.new() # center_left card
 		cr_card_anchor.position = points.get(right_middle + (points_between_card/2))
 		cr_card_anchor.resource_type = Card.TimeResource.AI
+		cr_card_anchor.resource_index = 0
 		anchors.append(cr_card_anchor)
 		anchor_count += 1
 		for i in range((ai_card_amount - 2) /2): # finds half the points (after removing 2(the 2 middle))
 			var card_anchor1: CardAnchor = CardAnchor.new() # right
 			card_anchor1.position = points.get(right_middle + (points_between_card/2) + (points_between_card * (i + 1)))
 			card_anchor1.resource_type = Card.TimeResource.AI
+			card_anchor1.resource_index = (i+1) * -1
+			
 			anchors.append(card_anchor1)
 			anchor_count += 1
 			var card_anchor2: CardAnchor = CardAnchor.new() # left
 			card_anchor2.position = points.get(right_middle - (points_between_card/2) - (points_between_card * (i + 1)))
 			card_anchor2.resource_type = Card.TimeResource.AI
+			card_anchor2.resource_index = i+2
 			anchors.append(card_anchor2)
 			anchor_count += 1
+	
 	State.player_stats.card_anchors.append_array(anchors)
 	
 	#TEMP
@@ -117,6 +133,9 @@ func _draw() -> void:
 	for anchor in State.player_stats.card_anchors:
 		draw_circle(anchor.position, dot_radius, dot_color)
 	print("ANCHORS AWAY!")
+	
+	## TODO Give the Anchors some sort of order/positioning
+	Signals.card_anchors_ready.emit()
 
 func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float):
 	var q0 = p0.lerp(p1, t)

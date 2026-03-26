@@ -8,7 +8,10 @@ extends Control
 @onready var panel: Panel = $Panel
 @onready var cost: Label = $Cost
 @onready var art: TextureRect = $Art
+@onready var card_text: RichTextLabel = $CardText
 
+#func _ready() -> void:
+	#_set_card(card)
 
 ## Sets the cad's value, cost, texture and icon
 ##
@@ -18,7 +21,7 @@ func _set_card(value: Card) -> void:
 	card = value
 	cost.text = str(card.cost)
 	art.texture = card.art
-	
+	card_text.text = card.tooltip_text
 	#match card.timeResource:
 		#Card.TimeResource.HUMAN:
 			#text_color = Color(0.294,0.412,0.184,1.0)

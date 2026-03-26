@@ -20,6 +20,7 @@ var ai_discard: CardPile
 var ai_draw_pile: CardPile                          ## The pile of drawable cards for the character
 
 var card_anchors: Array[CardAnchor]
+var current_hand: CardPile
 
 ##  Sets the time queued for a character
 ##
@@ -33,14 +34,22 @@ func set_ai_queue_time(value: int) -> void:
 	ai_queue_time = value
 	stats_changed.emit()
 
+func sort_card_anchors_desc() -> void:
+	card_anchors.sort_custom(func(a: CardAnchor, b: CardAnchor) -> bool:
+		return a.resource_index > b.resource_index
+	)
+
 func create_instance() -> Resource:
 	var instance: PlayerStats = self.duplicate()
 	instance.health = max_health
 	instance.block = 0
-	instance.human_deck = instance.human_starting_deck.duplicate()
 	instance.ai_deck = instance.ai_starting_deck.duplicate()
-	instance.ai_draw_pile = CardPile.new()
-	instance.human_draw_pile = CardPile.new()
+	instance.ai_draw_pile = instance.ai_starting_deck.duplicate()
 	instance.ai_discard = CardPile.new()
+	
+	instance.human_draw_pile = instance.human_starting_deck.duplicate()
+	instance.human_deck = instance.human_starting_deck.duplicate()
 	instance.human_discard = CardPile.new()
+	
+	instance.current_hand = CardPile.new()
 	return instance
