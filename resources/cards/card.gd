@@ -41,3 +41,32 @@ func _get_targets(targets: Array[Node]) -> Array[Node]:
 
 func queue() -> void:
 	pass
+
+func contains_valid_target(targets: Array[Node]) -> bool:
+	if not targets:
+		return false
+	var drop_area: Node
+	var enemy: Node
+	
+	for area in targets:
+		if area.is_in_group("drop_area"):
+			drop_area = area
+		elif area.is_in_group("enemies"):
+			enemy = area
+			
+	match target: 
+		Target.SELF:
+			if drop_area != null:
+				return true
+		Target.ALL_ENEMIES:
+			if drop_area != null:
+				return true
+		Target.SINGLE_ENEMY:
+			if drop_area != null and enemy != null:
+				return true
+		Target.EVERYONE:
+			if drop_area != null:
+				return true
+		_:
+			return false
+	return false

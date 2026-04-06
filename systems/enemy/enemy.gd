@@ -32,3 +32,11 @@ func setup_enemy(new_stats:EnemyStats, new_anchor: EnemyAnchor) -> void:
 
 func set_enemy_stats(new_stats: EnemyStats) -> void:
 	stats = new_stats
+
+
+func _on_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_area_exited(area: Area2D) -> void:
+	pass # Replace with function body.

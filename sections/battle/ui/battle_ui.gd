@@ -1,7 +1,7 @@
 class_name BattleUI
 extends CanvasLayer
 
-@onready var hand: Control = %Hand
+@onready var hand:= %Hand
 
 const CARD_UI = preload("res://main/card_ui/card_ui.tscn")
 
@@ -23,8 +23,10 @@ func init_cards() -> void:
 		anchor.card = card
 		var new_card_ui := CARD_UI.instantiate()
 		hand.add_child(new_card_ui)
+		new_card_ui.set_anchors_preset(Control.PRESET_TOP_LEFT)
+		new_card_ui.anchor = anchor
 		new_card_ui.card = anchor.card
-		new_card_ui.position = anchor.position
+		new_card_ui.global_position = anchor.position
 		new_card_ui.scale = Vector2(.45,.45)
 	
 	print("INIT CARDS")

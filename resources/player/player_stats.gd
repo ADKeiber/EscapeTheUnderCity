@@ -39,6 +39,19 @@ func sort_card_anchors_desc() -> void:
 		return a.resource_index > b.resource_index
 	)
 
+## Verifies that a card can be played based on its time to complete
+##
+func can_play_card(card: Card) -> bool: #TODO update to look for queue space not look at time_limit
+	return true
+	#match card.timeResource:
+		#Card.TimeResource.HUMAN:
+			#return card.cost + human_queue_time <= time_limit
+		#Card.TimeResource.AI:
+			#return card.cost + ai_queue_time <= time_limit
+		#_:
+			#print("Not a valid time resource")
+	#return false
+
 func create_instance() -> Resource:
 	var instance: PlayerStats = self.duplicate()
 	instance.health = max_health

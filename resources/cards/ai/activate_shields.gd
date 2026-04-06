@@ -7,4 +7,5 @@ extends Card
 ## of the target (Self) by a given amount
 ##
 func apply_effects(targets: Array[Node]) -> void:
+	print("Shields Activated")
 	pass

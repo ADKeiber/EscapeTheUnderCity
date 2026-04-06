@@ -74,9 +74,7 @@ func _draw() -> void:
 	#State.player_stats.card_anchors.append_array(anchors)
 	# FIND CARD ANCHORS FOR AI CARDS
 	var right_middle: int = steps * .75
-	
 	var ai_card_amount: int = State.player_stats.ai_hand_max
-	
 	if ai_card_amount % 2 != 0: # its odd
 		var card_anchor: CardAnchor = CardAnchor.new() # center card
 		card_anchor.position = points.get(right_middle)
@@ -125,17 +123,14 @@ func _draw() -> void:
 			anchor_count += 1
 	
 	State.player_stats.card_anchors.append_array(anchors)
-	
-	#TEMP
-	var dot_radius = 10.0                # Size of the dot
-	var dot_color = Color.RED           # Color of the dot
-
-	for anchor in State.player_stats.card_anchors:
-		draw_circle(anchor.position, dot_radius, dot_color)
-	print("ANCHORS AWAY!")
-	
-	## TODO Give the Anchors some sort of order/positioning
 	Signals.card_anchors_ready.emit()
+	##TEMP
+	#var dot_radius = 10.0                # Size of the dot
+	#var dot_color = Color.RED           # Color of the dot
+#
+	#for anchor in State.player_stats.card_anchors:
+		#draw_circle(anchor.position, dot_radius, dot_color)
+	#print("ANCHORS AWAY!")
 
 func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float):
 	var q0 = p0.lerp(p1, t)

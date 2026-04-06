@@ -3,13 +3,13 @@
 class_name CardState
 extends Node
 
-enum State {BASE, CLICKED, DRAGGING, AIMING, RELEASED} # All the different states a card can be in
+enum CardState {BASE, CLICKED, DRAGGING, AIMING, RELEASED} # All the different states a card can be in
 
-signal transition_requested(from: CardState, to: State) 
+signal transition_requested(from: CardState, to: CardState.CardState) 
 
-@export var state: State
+@export var card_state: CardState.CardState
 
-#var card_ui: CardUI
+var card_ui: CardUI
 
 ## Uninplemented enter function for card state
 ##

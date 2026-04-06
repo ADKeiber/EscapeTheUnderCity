@@ -8,9 +8,9 @@
 script = ExtResource("3_7m63m")
 human_starting_deck = ExtResource("2_i8jwl")
 ai_starting_deck = ExtResource("1_r34vl")
-ai_hand_max = 5
+ai_hand_max = 3
 ai_queue_max = 20
-human_hand_max = 2
+human_hand_max = 3
 human_queue_max = 40
 max_health = 30
 metadata/_custom_type_script = "uid://pn7kmxsmno5e"

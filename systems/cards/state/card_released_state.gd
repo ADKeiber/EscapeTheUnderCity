@@ -9,16 +9,33 @@ var played: bool
 ##
 func enter() -> void:
 	played = false
+	#await get_tree().physics_frame
+	#card_ui.targets = get_current_targets()
+	var has_valid_target = card_ui.card.contains_valid_target(card_ui.targets)
 	# Only goes here if there is a valid target
-	if not card_ui.targets.is_empty():
-		Events.tooltip_hide_requested.emit()
+	if has_valid_target:
+		#Events.tooltip_hide_requested.emit()
 		played = true
-		card_ui.play_to_queue()
+		card_ui.disabled = true
+		card_ui.playable = false
+		card_ui.queue_free() #TODO emit card played
+	else:
+		#card_ui.position = card_ui.anchor.position
+		card_ui.animate_to_position(card_ui.anchor.position, .4)
+		#card_ui.play_to_queue()
 
 ## Activates when there is an input when in the released state
 ##
-func on_input(_event: InputEvent) -> void:
+func on_gui_input(_event: InputEvent) -> void:
 	if played:
 		return
+	transition_requested.emit(self, CardState.CardState.BASE)
+
+func get_current_targets() -> Array[Node]:
+	var targets: Array[Node] = []
+	for area in card_ui.drop_point_detector.get_overlapping_areas():
+		print("Detected: ", area.name)
+		if area.is_in_group("drop_area"):
+			targets.append(area)
 	
-	transition_requested.emit(self, CardState.State.BASE)
+	return targets
