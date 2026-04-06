@@ -5,7 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2udl6"]
 size = Vector2(1, 1)
 
-[node name="CardTargetSelector" type="Node2D" unique_id=83120773]
+[node name="CardTargetSelector" type="Control" unique_id=1973978051]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_2udl6")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=19428184]
@@ -16,6 +18,7 @@ position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_2udl6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=648938463]
+layer = 100
 
 [node name="CardArc" type="Line2D" parent="CanvasLayer" unique_id=471305016]
 

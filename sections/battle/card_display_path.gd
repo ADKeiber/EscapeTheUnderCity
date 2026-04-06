@@ -124,13 +124,6 @@ func _draw() -> void:
 	
 	State.player_stats.card_anchors.append_array(anchors)
 	Signals.card_anchors_ready.emit()
-	##TEMP
-	#var dot_radius = 10.0                # Size of the dot
-	#var dot_color = Color.RED           # Color of the dot
-#
-	#for anchor in State.player_stats.card_anchors:
-		#draw_circle(anchor.position, dot_radius, dot_color)
-	#print("ANCHORS AWAY!")
 
 func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float):
 	var q0 = p0.lerp(p1, t)

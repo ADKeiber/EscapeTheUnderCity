@@ -21,7 +21,7 @@ func enter() -> void:
 		card_ui.queue_free() #TODO emit card played
 	else:
 		#card_ui.position = card_ui.anchor.position
-		card_ui.animate_to_position(card_ui.anchor.position, .4)
+		card_ui.animate_to_position(card_ui.anchor.position, 0.4)
 		#card_ui.play_to_queue()
 
 ## Activates when there is an input when in the released state

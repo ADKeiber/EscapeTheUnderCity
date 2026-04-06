@@ -58,8 +58,6 @@ script = ExtResource("2_d6h4l")
 position = Vector2(968, 689.00006)
 scale = Vector2(0.4, 0.4)
 
-[node name="CardTargetSelector" parent="." unique_id=83120773 instance=ExtResource("7_cpyne")]
-
 [node name="CardDisplayPath" type="Node2D" parent="." unique_id=653621746]
 script = ExtResource("6_eu0rm")
 
@@ -79,3 +77,5 @@ offset_top = 774.0
 offset_right = 1924.0
 offset_bottom = 1081.0
 mouse_filter = 2
+
+[node name="CardTargetSelector" parent="BattleUI" unique_id=1973978051 instance=ExtResource("7_cpyne")]

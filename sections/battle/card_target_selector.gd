@@ -2,7 +2,7 @@
 ## select a specific target
 ##
 class_name CardTargetSelector
-extends Node2D
+extends Control
 
 const ARC_POINTS := 10 
 
@@ -17,7 +17,10 @@ var targeting := false                               # if the card is targeting
 func _ready() -> void:
 	Signals.card_aim_started.connect(_on_card_aim_started)
 	Signals.card_aim_ended.connect(_on_card_aim_ended)
-
+	z_as_relative = false
+	z_index = 1000
+	card_arc.z_as_relative = false
+	card_arc.z_index = 1000
 ## Moves that arc and creates the arc points
 ##
 func _process(_delta: float) -> void:

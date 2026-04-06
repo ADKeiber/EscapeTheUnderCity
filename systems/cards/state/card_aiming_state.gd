@@ -18,6 +18,8 @@ func enter() -> void:
 ##
 func exit() -> void:
 	Signals.card_aim_ended.emit(card_ui)
+	var card_ui := owner as CardUI
+	card_ui.scale = Vector2(.45,.45)
 
 ### Accounts for input during the card aiming process 
 ###
@@ -39,7 +41,9 @@ func on_input(event: InputEvent) -> void:
 	
 	#Card goes back to returns to base state
 	if  event.is_action_pressed("right_click"):
+		card_ui.animate_to_position(card_ui.anchor.position, .4)
 		transition_requested.emit(self, CardState.CardState.BASE) #TODO return to anchor
+		
 		# If left mouse is released or pressed again the Card state goes to released state
 	elif event.is_action_released("left_click") or event.is_action_pressed("left_click"):
 		get_viewport().set_input_as_handled()

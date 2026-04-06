@@ -41,12 +41,13 @@ func on_mouse_entered() -> void:
 	var card_ui := owner as CardUI
 	var hand := card_ui.get_parent()
 	original_index = hand.get_children().find(card_ui)
-
+	
 	hand.move_child(card_ui, hand.get_child_count() - 1)
 
 	# Changes card to card ui's hover style and creates tooltip for card
 	card_ui.panel.set("theme_override_styles/panel", card_ui.HOVER_STYLE_BOX)
 	card_ui.scale = Vector2(card_ui.scale.x + .05, card_ui.scale.x + .05)
+	card_ui.global_position = Vector2(card_ui.global_position.x, card_ui.global_position.y - 15)
 	#Events.card_tooltip_requested.emit(card_ui.card.icon, card_ui.card.tooltip_text)
 
 ## Used for when the mouse leaves from hovering the card
@@ -59,6 +60,7 @@ func on_mouse_exited() -> void:
 	# Goes back to non hover card ui style and hides tooltip
 	card_ui.panel.set("theme_override_styles/panel", card_ui.BASE_STYLEBOX)
 	card_ui.scale = Vector2(card_ui.scale.x - .05, card_ui.scale.x - .05)
+	card_ui.global_position = Vector2(card_ui.global_position.x, card_ui.global_position.y + 15)
 	#Events.tooltip_hide_requested.emit()
 
 func move_card_to_origin() -> void:
