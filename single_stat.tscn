@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://m4hyw0yiiwmd"]
+
+[ext_resource type="Script" uid="uid://bm2bqcckooyk5" path="res://single_stat.gd" id="2_u53pw"]
+
+[node name="Stat" type="TextureRect" unique_id=183894850]
+script = ExtResource("2_u53pw")
+
+[node name="Label" type="Label" parent="." unique_id=138002319]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 57.0
+offset_right = 145.0
+offset_bottom = 156.0
+theme_override_font_sizes/font_size = 72
+text = "20"

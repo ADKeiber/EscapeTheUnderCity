@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bdakqdqclfapn"]
+
+[ext_resource type="Script" uid="uid://d4n0qp7s11agd" path="res://systems/enemy/enemy_stats_visuals.gd" id="1_a8txc"]
+[ext_resource type="PackedScene" uid="uid://m4hyw0yiiwmd" path="res://single_stat.tscn" id="2_g550y"]
+[ext_resource type="Texture2D" uid="uid://bo71rsi3tfydx" path="res://assets/art/UI/Enemy_Health_Icon.png" id="3_2uxty"]
+[ext_resource type="Texture2D" uid="uid://b7ll2l3yqxmp4" path="res://assets/art/UI/Enemy_Shield_Icon.png" id="4_mq7n5"]
+[ext_resource type="Texture2D" uid="uid://ilwrq0jfq7ne" path="res://assets/art/UI/Selector.png" id="5_hpsrm"]
+
+[node name="EnemyStatsVisuals" type="Control" unique_id=831241860]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 631.6667
+offset_bottom = 275.33334
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_a8txc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2051798180]
+layout_mode = 0
+offset_right = 622.6667
+offset_bottom = 265.33334
+
+[node name="BracketLow" type="TextureRect" parent="HBoxContainer" unique_id=623009834]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("5_hpsrm")
+stretch_mode = 2
+flip_h = true
+flip_v = true
+
+[node name="Health" parent="HBoxContainer" unique_id=183894850 instance=ExtResource("2_g550y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_2uxty")
+stretch_mode = 2
+
+[node name="Block" parent="HBoxContainer" unique_id=1901524345 instance=ExtResource("2_g550y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_mq7n5")
+stretch_mode = 2
+
+[node name="BracketUp" type="TextureRect" parent="HBoxContainer" unique_id=643900904]
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("5_hpsrm")
+stretch_mode = 2
