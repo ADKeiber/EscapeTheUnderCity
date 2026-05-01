@@ -31,9 +31,30 @@ func setup_enemy(new_stats:EnemyStats, new_anchor: EnemyAnchor) -> void:
 	#setting scale and position
 	self.scale = Vector2(anchor.character_scale, anchor.character_scale)
 	self.position = anchor.basepoint
+	#Get global postion of the character... move stats by the offset.... Multiply the move by the scale since its original is 1x1
+	#var x_offset = stats.top_head_location_offset.x 
+	#var y_offset = stats.top_head_location_offset.y
+	#enemy_stats_visuals.global_position = Vector2(self.global_position.x + x_offset, self.global_position.y - (y_offset * self.scale.y))
 	
+	#enemy_stats_visuals.position =  enemy_body.position + (stats.head_offset_from_center - Vector2((enemy_stats_visuals.size.x/2) * self.scale.x,(enemy_stats_visuals.size.y/2) * self.scale.y * -1))
+	
+	
+	
+	#var enemy_stats_visuls_x = enemy_body.position.x
+	#var enemy_stats_visuls_y = enemy_body.position.y + stats.head_offset_from_center.y - enemy_stats_visuals.size.y/2
+	#enemy_stats_visuals.position = Vector2(enemy_stats_visuls_x, enemy_stats_visuls_y)
+	#print(enemy_stats_visuals.size.x)
+	#print((enemy_stats_visuals.size.x/2) * self.scale.x)
+	#print(self.scale.x)
+	
+	
+	
+	
+	#enemy_stats_visuals.position = top_head_marker.position - Vector2(enemy_stats_visuals.size.x/2.0, enemy_stats_visuals.size.y/2.0)
+
 func update_enemy_stats() -> void:
-	enemy_stats_visuals.update_stats(stats)
+	#enemy_stats_visuals.update_stats(stats)
+	pass
 
 ## Sets the stats of an enemy 
 ##

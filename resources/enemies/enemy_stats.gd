@@ -1,6 +1,5 @@
 class_name EnemyStats
 extends Stats
 
-#add AI
-@export var nothing: int
 @export var art: Texture     ## The art for an entity
+@export var head_offset_from_center: Vector2

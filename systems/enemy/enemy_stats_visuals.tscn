@@ -1,51 +1,191 @@
 [gd_scene format=3 uid="uid://bdakqdqclfapn"]
 
 [ext_resource type="Script" uid="uid://d4n0qp7s11agd" path="res://systems/enemy/enemy_stats_visuals.gd" id="1_a8txc"]
+[ext_resource type="Texture2D" uid="uid://cbii05d6i7no3" path="res://assets/art/UI/Selector_Selected.png" id="2_a8txc"]
 [ext_resource type="PackedScene" uid="uid://m4hyw0yiiwmd" path="res://single_stat.tscn" id="2_g550y"]
 [ext_resource type="Texture2D" uid="uid://bo71rsi3tfydx" path="res://assets/art/UI/Enemy_Health_Icon.png" id="3_2uxty"]
 [ext_resource type="Texture2D" uid="uid://b7ll2l3yqxmp4" path="res://assets/art/UI/Enemy_Shield_Icon.png" id="4_mq7n5"]
-[ext_resource type="Texture2D" uid="uid://ilwrq0jfq7ne" path="res://assets/art/UI/Selector.png" id="5_hpsrm"]
+[ext_resource type="PackedScene" uid="uid://bjft43fu0xsui" path="res://systems/enemy/enemy_status.tscn" id="6_g550y"]
+
+[sub_resource type="Gradient" id="Gradient_g550y"]
+offsets = PackedFloat32Array(0, 0.21977288, 0.49365398, 0.7782231, 1)
+colors = PackedColorArray(0, 0, 0.84705883, 0.4509804, 0, 0, 0.84705883, 0.3137255, 0, 0, 0.84705883, 0.4509804, 0, 0, 0.84705883, 0.39215687, 0, 0, 0.84705883, 0.50980395)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2uxty"]
+gradient = SubResource("Gradient_g550y")
+fill_from = Vector2(0.15954416, 0.16239317)
+fill_to = Vector2(0.94586897, 0.85754985)
+
+[sub_resource type="Theme" id="Theme_a8txc"]
+resource_name = "4"
+HBoxContainer/constants/separation = 4
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 10
+
+[sub_resource type="Theme" id="Theme_g550y"]
 
 [node name="EnemyStatsVisuals" type="Control" unique_id=831241860]
 layout_mode = 3
-anchors_preset = 0
+anchor_top = 0.10300001
+anchor_bottom = 0.10300001
 offset_left = 1.0
-offset_top = 2.0
-offset_right = 631.6667
-offset_bottom = 275.33334
+offset_top = -109.240005
+offset_right = 761.00006
+offset_bottom = 1053.4268
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_a8txc")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2051798180]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=788214045]
 layout_mode = 0
-offset_right = 622.6667
-offset_bottom = 265.33334
+offset_left = 26.666664
+offset_top = 25.333332
+offset_right = 734.6667
+offset_bottom = 1304.0001
+texture = SubResource("GradientTexture2D_2uxty")
 
-[node name="BracketLow" type="TextureRect" parent="HBoxContainer" unique_id=623009834]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=22235678]
+layout_mode = 0
+offset_top = -4.0
+offset_right = 765.3334
+offset_bottom = 1151.0
+alignment = 1
+
+[node name="Stats" type="HBoxContainer" parent="VBoxContainer" unique_id=2051798180]
+layout_mode = 2
+
+[node name="BracketHigh" type="TextureRect" parent="VBoxContainer/Stats" unique_id=623009834]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("5_hpsrm")
+texture = ExtResource("2_a8txc")
 stretch_mode = 2
 flip_h = true
 flip_v = true
 
-[node name="Health" parent="HBoxContainer" unique_id=183894850 instance=ExtResource("2_g550y")]
+[node name="HealthContainer" type="MarginContainer" parent="VBoxContainer/Stats" unique_id=124032257]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Health" parent="VBoxContainer/Stats/HealthContainer" unique_id=183894850 instance=ExtResource("2_g550y")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = SubResource("Theme_a8txc")
 texture = ExtResource("3_2uxty")
 stretch_mode = 2
 
-[node name="Block" parent="HBoxContainer" unique_id=1901524345 instance=ExtResource("2_g550y")]
+[node name="BlockContainer" type="MarginContainer" parent="VBoxContainer/Stats" unique_id=218014789]
+layout_mode = 2
+theme_override_constants/margin_right = 30
+
+[node name="Block" parent="VBoxContainer/Stats/BlockContainer" unique_id=1901524345 instance=ExtResource("2_g550y")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = SubResource("Theme_g550y")
 texture = ExtResource("4_mq7n5")
 stretch_mode = 2
 
-[node name="BracketUp" type="TextureRect" parent="HBoxContainer" unique_id=643900904]
+[node name="MainBody" type="MarginContainer" parent="VBoxContainer" unique_id=1136669384]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainBody" unique_id=734572358]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="VBoxContainer/MainBody/VBoxContainer" unique_id=1385348161]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[color=#9C5652][b]Name[/b]:[/color] Snakeman
+[color=#9C5652][b]Desgination[/b]:[/color] Class III mutant 
+[color=#9C5652][b]Description[/b]:[/color] Hideous human animal hybrid that is a byproduct of gene splicing"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MainBody/VBoxContainer" unique_id=415926697]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="Statuses" type="FlowContainer" parent="VBoxContainer/MainBody/VBoxContainer/MarginContainer" unique_id=560316075]
+clip_contents = true
+layout_mode = 2
+
+[node name="EnemyStatus" parent="VBoxContainer/MainBody/VBoxContainer/MarginContainer/Statuses" unique_id=774884180 instance=ExtResource("6_g550y")]
+custom_minimum_size = Vector2(340, 340)
+layout_mode = 2
+
+[node name="EnemyStatus2" parent="VBoxContainer/MainBody/VBoxContainer/MarginContainer/Statuses" unique_id=1311840051 instance=ExtResource("6_g550y")]
+custom_minimum_size = Vector2(340, 340)
+layout_mode = 2
+
+[node name="Information" type="VBoxContainer" parent="VBoxContainer/MainBody" unique_id=620813398]
+visible = false
+layout_mode = 2
+
+[node name="Name" type="HBoxContainer" parent="VBoxContainer/MainBody/Information" unique_id=672930080]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/MainBody/Information/Name" unique_id=1702957069]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Name:"
+horizontal_alignment = 3
+vertical_alignment = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MainBody/Information/Name" unique_id=1838351843]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "Snakeman"
+vertical_alignment = 2
+
+[node name="Designation" type="HBoxContainer" parent="VBoxContainer/MainBody/Information" unique_id=1793246641]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MainBody/Information/Designation" unique_id=264589353]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Designation: "
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MainBody/Information/Designation" unique_id=685591395]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+text = "Class III mutant"
+
+[node name="Description" type="HBoxContainer" parent="VBoxContainer/MainBody/Information" unique_id=774004632]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MainBody/Information/Description" unique_id=1968292371]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Description:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MainBody/Information/Description" unique_id=1545303908]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+text = "Hideous human animal hybrid as a byproduct "
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1100286372]
+layout_mode = 2
+alignment = 2
+
+[node name="BracketUp" type="TextureRect" parent="VBoxContainer/HBoxContainer2" unique_id=643900904]
 layout_mode = 2
 size_flags_vertical = 8
-texture = ExtResource("5_hpsrm")
+texture = ExtResource("2_a8txc")
 stretch_mode = 2

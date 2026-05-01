@@ -14,32 +14,45 @@ script = ExtResource("1_wla7d")
 
 [node name="EnemyBody" type="Sprite2D" parent="." unique_id=151733702]
 unique_name_in_owner = true
-position = Vector2(0, -510)
+position = Vector2(1, -493)
 texture = ExtResource("2_kwtwx")
 
 [node name="EnemyHitBox" type="CollisionShape2D" parent="." unique_id=464160511]
 unique_name_in_owner = true
-position = Vector2(1, -508.25)
+position = Vector2(0, -496)
 shape = SubResource("RectangleShape2D_kwtwx")
 debug_color = Color(0.99215686, 0, 0.06666667, 0.41960785)
 
 [node name="SelectorBottom" type="Sprite2D" parent="." unique_id=1334093013]
-visible = false
-position = Vector2(41, -490)
+position = Vector2(183, -24)
 texture = ExtResource("3_04sh1")
 
 [node name="SelectorTop" type="Sprite2D" parent="." unique_id=1457228228]
-visible = false
-position = Vector2(-40, -533)
+position = Vector2(-178, -969)
 rotation = 3.1415927
 texture = ExtResource("3_04sh1")
 
 [node name="EnemyStatsVisuals" parent="." unique_id=831241860 instance=ExtResource("4_qpe6g")]
-offset_left = -102.0
-offset_top = -1145.0
-offset_right = 446.00006
-offset_bottom = -859.6666
-scale = Vector2(0.5, 0.5)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 195.0
+offset_top = -992.0
+offset_right = 811.0
+offset_bottom = -706.6666
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="Marker2D" parent="." unique_id=2035660495]
+position = Vector2(-228, -1019)
+
+[node name="Right" type="Marker2D" parent="." unique_id=1926531102]
+position = Vector2(196, -991)
+
+[node name="Below" type="Marker2D" parent="." unique_id=1814959642]
+position = Vector2(-195, -1)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -9,12 +9,12 @@ extends Control
 const SELECTOR_SELECTED = preload("res://assets/art/UI/Selector_Selected.png")
 const SELECTOR = preload("res://assets/art/UI/Selector.png")
 
-func update_stats(stats: Stats) -> void:
-	health.update(stats.health)
-	if stats.block == 0:
-		block.hide()
-	else:
-		block.update(stats.block)
+#func update_stats(stats: Stats) -> void:
+	#health.update(stats.health)
+	#if stats.block == 0:
+		#block.hide()
+	#else:
+		#block.update(stats.block)
 
 func select() -> void:
 	bracket_up.texture = SELECTOR_SELECTED

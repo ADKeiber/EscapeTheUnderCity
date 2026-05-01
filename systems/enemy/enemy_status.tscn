@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bjft43fu0xsui"]
+
+[ext_resource type="Texture2D" uid="uid://ce5s1g4m0vej0" path="res://assets/art/UI/Progress_Bar.png" id="1_aw2q7"]
+[ext_resource type="Texture2D" uid="uid://bpua6wo6mwv3o" path="res://assets/art/UI/Progress_Bar_Full.png" id="2_r1y12"]
+[ext_resource type="Texture2D" uid="uid://2y7hmtg7kfnp" path="res://assets/art/enemies/Eat_Beans_Enemy_Intent.png" id="3_g4rig"]
+
+[node name="EnemyStatus" type="Control" unique_id=774884180]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchor_left = 0.455
+anchor_top = 0.42100003
+anchor_right = 0.455
+anchor_bottom = 0.42100003
+offset_left = 0.8999634
+offset_top = -0.1800232
+offset_right = 342.39996
+offset_bottom = 342.31998
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=12105640]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
+offset_right = 340.0
+offset_bottom = 340.0
+value = 33.0
+fill_mode = 4
+texture_under = ExtResource("1_aw2q7")
+texture_progress = ExtResource("2_r1y12")
+
+[node name="ColorRect" type="ColorRect" parent="TextureProgressBar" unique_id=669629389]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 36.66671
+offset_right = 303.33334
+offset_bottom = 303.33334
+color = Color(0.4022597, 0.659207, 0.5115203, 1)
+
+[node name="Inverval" type="Label" parent="TextureProgressBar/ColorRect" unique_id=1750523464]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 199.33328
+offset_right = 88.0
+offset_bottom = 266.33328
+theme_override_font_sizes/font_size = 48
+text = "2.0"
+
+[node name="Value" type="Label" parent="TextureProgressBar/ColorRect" unique_id=686607937]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 199.33328
+offset_right = 250.0
+offset_bottom = 266.33328
+theme_override_font_sizes/font_size = 48
+text = "5"
+
+[node name="StatusVisual" type="Sprite2D" parent="TextureProgressBar" unique_id=1790744390]
+position = Vector2(171.5, 172.00002)
+scale = Vector2(1, 1.0147059)
+texture = ExtResource("3_g4rig")

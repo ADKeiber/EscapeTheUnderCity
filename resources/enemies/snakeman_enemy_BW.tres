@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_yhyk8")
+top_head_location_offset = Vector2(-96, 986)
 art = ExtResource("1_uxy5h")
 max_health = 40
 metadata/_custom_type_script = "uid://dnm1twvyqgui8"

@@ -14,6 +14,8 @@ basepoint = Vector2(954, 1228)
 distance_from_camera = 1
 character_scale = 1.0
 hd_scale = 1
+infoPanelAnchor = 2
+percentInfoPanelVisible = 1.0
 metadata/_custom_type_script = "uid://dc7rl1dyekaxd"
 
 [sub_resource type="Resource" id="Resource_kt7wn"]
@@ -23,6 +25,8 @@ basepoint = Vector2(971, 934)
 distance_from_camera = 3
 character_scale = 0.65
 hd_scale = 1
+infoPanelAnchor = 1
+percentInfoPanelVisible = 1.0
 metadata/_custom_type_script = "uid://dc7rl1dyekaxd"
 
 [sub_resource type="Resource" id="Resource_fr4yc"]
@@ -32,6 +36,8 @@ basepoint = Vector2(968, 689)
 distance_from_camera = 8
 character_scale = 0.4
 hd_scale = 1
+infoPanelAnchor = 3
+percentInfoPanelVisible = 1.0
 metadata/_custom_type_script = "uid://dc7rl1dyekaxd"
 
 [resource]
